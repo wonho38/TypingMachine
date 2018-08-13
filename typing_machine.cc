@@ -62,12 +62,17 @@ bool TypingMachine::TypeKey(char key) {
 		t_prev_node->next_node = new_node;
 	}
 	cnt++;
-	return false;
+	return true;
 }
 
 bool TypingMachine::EraseKey() {
-	if (cnt > 0) cnt--;
-
+	if (curr_node->prev_node == nullptr) return false;
+ 	if (cnt <= 0) return false;
+ 	cnt--;
+ 	TypingMachine* t_prev_node = curr_node->prev_node;
+ 	curr_node->prev_node = t_prev_node->prev_node;
+ 	if (t_prev_node->prev_node != nullptr) t_prev_node->prev_node->next_node = curr_node;
+ 	delete t_prev_node;
 	return false;
 }
 
