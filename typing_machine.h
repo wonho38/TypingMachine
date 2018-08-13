@@ -8,11 +8,8 @@
 #include "node.h"
 
 class TypingMachine {
-	TypingMachine* curr_node;
-	char stored_char;
-	int cnt = 0;
-	TypingMachine* prev_node;
-	TypingMachine* next_node;
+  Node* curr_node = nullptr;
+  int cnt = 0;
  public:
   TypingMachine();
   void HomeKey();
